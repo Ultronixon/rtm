@@ -63,7 +63,7 @@ def modmig(par):
 
     # Reverse-time migration
     rtm = '''
-    rtm trace=${SOURCES[1]}
+    ../rtm trace=${SOURCES[1]}
     isz=%(isz)d isxbeg=%(isxb)d isxend=%(isxe)d iskip=%(isxd)d
     igz=%(igz)d igxbeg=%(igxb)d igxend=%(igxe)d --readwrite=y
     ''' % par
