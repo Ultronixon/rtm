@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -c -Wall -O2
-LDFLAGS = librsf.a -lm
+LDFLAGS = librsf.a -lm -DNO_BLAS
 SOURCES =  Mrtm.c step.c wavefun.c
 OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = rtm

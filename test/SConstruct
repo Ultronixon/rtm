@@ -41,7 +41,7 @@ def modmig(par):
     # Variable velocity
     Flow('trace wave','layermodel','wave ' + wave)
     if par['nm'] != 0:
-        Movie('wave')
+        #Movie('wave')
         Result('wave','grey gainpanel=all wanttitle=n')
 
     Result('trace','grey title=Data')
@@ -49,8 +49,8 @@ def modmig(par):
     # Constant velocity
     Flow('hom','layermodel','math output=1.5')
     Flow('tracehom wavehom','hom','wave ' + wave)
-    if par['nm'] != 0:
-        Movie('wavehom')
+    #if par['nm'] != 0:
+        #Movie('wavehom')
     Result('tracehom','grey title="Data (Homogeneous Model)"')
 
     # Difference
@@ -68,10 +68,9 @@ def modmig(par):
     igz=%(igz)d igxbeg=%(igxb)d igxend=%(igxe)d --readwrite=y
     ''' % par
 
-    Flow('source','hom tracediff',rtm + ' source=$TARGET',stdout=0)
+    # Flow('source','hom tracediff',rtm + ' source=$TARGET',stdout=0)
 
-    Flow('rtm rtmmov','hom tracediff source',
-         rtm + '  source=${SOURCES[2]} receiver=${TARGETS[1]}')
+    Flow('rtm ','hom tracediff ', rtm)
 
     Result('rtm','grey title=Image')
 
